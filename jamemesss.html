@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Information Form</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f0f0f0;
+display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+background-image: url("https://marketplace.canva.com/EAFNlEE_OKI/1/0/1131w/canva-green-creative-watercolor-stationery-document-oZgBZRrYMRU.jpg");
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Personal Information Form</h1>
+    <form onsubmit="submitForm(event)">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="section">Section:</label>
+        <input type="text" id="section" name="section" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+      </div>
+      <div class="form-group">
+        <label for="gcash">GCash Number:</label>
+        <input type="tel" id="gcash" name="gcash" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="occupation">Occupation:</label>
+        <input type="text" id="occupation" name="occupation" required>
+      </div>
+      <div class="form-group">
+        <label for="hobbies">Hobbies:</label>
+        <textarea id="hobbies" name="hobbies" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="emergency-contact">Emergency Contact:</label>
+        <input type="text" id="emergency-contact" name="emergency-contact" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+
+      // Get form data
+      var formData = {
+        name: document.getElementById('name').value,
+        section: document.getElementById('section').value,
+        age: document.getElementById('age').value,
+        gcash: document.getElementById('gcash').value,
+        address: document.getElementById('address').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        occupation: document.getElementById('occupation').value,
+        hobbies: document.getElementById('hobbies').value,
+        emergencyContact: document.getElementById('emergency-contact').value
+      };
+
+      // Save data to local storage
+      localStorage.setItem('formData', JSON.stringify(formData));
+
+      // Display success message
+      alert('Form submitted successfully!');
+
+      // Reset the form
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
